@@ -20,17 +20,17 @@
     var CONFIG = {"hostname":"steveleo.tk","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Vue 项目前端开发完毕后有多种发布方式，本文简单介绍在 centos 环境下使用 nginx 部署的流程。">
+  <meta name="description" content="部署 Vue 项目 | nginx 的简单应用Vue 项目前端开发完毕后有多种发布方式，本文简单介绍在 centos 环境下使用 nginx 部署的流程。 Vue项目打包Vue 项目默认使用 npm run build 进行生产环境打包，打包后的文件会放在项目的 dist 目录下，将该 dist 目录上传至 centos 服务器中，记住此时的路径，后面 nginx 配置时会用到。 nginx 部署">
 <meta property="og:type" content="article">
 <meta property="og:title" content="nginx部署vue项目">
 <meta property="og:url" content="http://steveleo.tk/nginx%E9%83%A8%E7%BD%B2vue%E9%A1%B9%E7%9B%AE/">
 <meta property="og:site_name" content="Steve Leo&#39;s Blog">
-<meta property="og:description" content="Vue 项目前端开发完毕后有多种发布方式，本文简单介绍在 centos 环境下使用 nginx 部署的流程。">
+<meta property="og:description" content="部署 Vue 项目 | nginx 的简单应用Vue 项目前端开发完毕后有多种发布方式，本文简单介绍在 centos 环境下使用 nginx 部署的流程。 Vue项目打包Vue 项目默认使用 npm run build 进行生产环境打包，打包后的文件会放在项目的 dist 目录下，将该 dist 目录上传至 centos 服务器中，记住此时的路径，后面 nginx 配置时会用到。 nginx 部署">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://steveleo.tk/nginx%E9%83%A8%E7%BD%B2vue%E9%A1%B9%E7%9B%AE/nginx-conf.png">
 <meta property="og:image" content="http://steveleo.tk/nginx%E9%83%A8%E7%BD%B2vue%E9%A1%B9%E7%9B%AE/syntaxok.png">
 <meta property="article:published_time" content="2020-09-23T15:06:06.000Z">
-<meta property="article:modified_time" content="2020-09-29T11:38:36.076Z">
+<meta property="article:modified_time" content="2020-09-29T11:54:06.305Z">
 <meta property="article:author" content="Steve Leo">
 <meta property="article:tag" content="vue">
 <meta property="article:tag" content="nginx">
@@ -186,7 +186,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-29 19:38:36" itemprop="dateModified" datetime="2020-09-29T19:38:36+08:00">2020-09-29</time>
+                <time title="Modified: 2020-09-29 19:54:06" itemprop="dateModified" datetime="2020-09-29T19:54:06+08:00">2020-09-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -199,7 +199,6 @@
             </span>
 
           
-            <div class="post-description">Vue 项目前端开发完毕后有多种发布方式，本文简单介绍在 centos 环境下使用 nginx 部署的流程。</div>
 
         </div>
       </header>
@@ -218,7 +217,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y gcc</span><br></pre></td></tr></table></figure></li>
 <li><p>安装 <strong>pcre</strong>、<strong>pcre-devel</strong><br><strong>prec</strong> 是一个 <strong>perl</strong> 库， 包括 <strong>perl</strong> 兼容的正则表达式库，<strong>nginx</strong> 的 <strong>http</strong> 模块需要使用 <strong>prel</strong> 解析正则表达式。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y pcre pcre-devel</span><br></pre></td></tr></table></figure>
-</li>
+ <a id="more"></a></li>
 <li><p>安装 <strong>zlib</strong><br><strong>zlib</strong> 库提供了多种解压缩方式， <strong>nginx</strong> 使用 <strong>zlib</strong> 对 <strong>http</strong> 包的内容进行 <strong>gzip</strong>。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y zlib zlib-devel</span><br></pre></td></tr></table></figure></li>
 <li><p>安装 <strong>openssl</strong><br><strong>openssl</strong> 用来进行安装通信。</p>
